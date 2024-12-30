@@ -7,7 +7,6 @@
 #include <vector>
 #include <iomanip>
 
-// Helper function to clean words by removing punctuation and numbers
 std::wstring cleanWord(const std::wstring& word) {
     std::wstring cleaned;
     for (wchar_t c : word) {
@@ -18,17 +17,16 @@ std::wstring cleanWord(const std::wstring& word) {
     return cleaned;
 }
 
-// Function to print a cross-reference table
 void printCrossReferenceTable(std::wofstream& outputFile,
                               const std::unordered_map<std::wstring, std::vector<int>>& wordLines,
                               const std::unordered_map<std::wstring, int>& wordCount,
                               int maxWidth) {
-    const int leftMargin = 20; // Width of the first column (word column)
+    const int leftMargin = 20;
     outputFile << std::setw(leftMargin) << L"Word" << L" | " << L"Line Number" << std::endl;
     outputFile << std::wstring(50, L'-') << std::endl;
 
     for (const auto& pair : wordLines) {
-        if (wordCount.at(pair.first) > 1) { // Only include words with a count greater than 1
+        if (wordCount.at(pair.first) > 1) { // includint tik zodzius kurie pasikartoj daugiau nei 1 karta
             outputFile << std::setw(leftMargin) << pair.first << L" | ";
             int currentWidth = leftMargin + 3;
             for (size_t i = 0; i < pair.second.size(); ++i) {
@@ -54,7 +52,6 @@ int main() {
     std::cin >> choice;
 
     if (choice == 3) {
-        // URL extraction
         std::ifstream inputFile("urlai.txt");
         if (!inputFile) {
             std::cerr << "Error: Could not open file urlai.txt" << std::endl;
@@ -67,14 +64,12 @@ int main() {
             return 1;
         }
 
-        // Extended regex for full and shortened URLs
         std::regex urlRegex(R"((https?://[^\s]+|www\.[^\s]+|[a-zA-Z0-9\-]+\.[a-zA-Z]{2,}))");
         std::string line;
         while (std::getline(inputFile, line)) {
             std::sregex_iterator begin(line.begin(), line.end(), urlRegex), end;
             for (auto it = begin; it != end; ++it) {
                 std::string url = it->str();
-                // Remove trailing punctuation from URL if present
                 while (!url.empty() && std::ispunct(url.back())) {
                     url.pop_back();
                 }
@@ -87,7 +82,6 @@ int main() {
         std::cout << "URLs extracted and written to outputas.txt" << std::endl;
 
     } else if (choice == 1 || choice == 2) {
-        // Word count and cross-reference table
         std::wifstream inputFile("tekstas.txt");
         if (!inputFile) {
             std::wcerr << L"Error: Could not open file tekstas.txt" << std::endl;
@@ -123,7 +117,6 @@ int main() {
         inputFile.close();
 
         if (choice == 1) {
-            // Print word count
             outputFile << std::setw(20) << L"Word" << L" | " << L"Count" << std::endl;
             outputFile << std::wstring(30, L'-') << std::endl;
 
