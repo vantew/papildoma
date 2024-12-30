@@ -25,5 +25,5 @@ cd build
 cmake ..  
 cmake --build .  
 cmake --install .  
-Savo .exe faila galima rasti Debug aplankale
 ```
+Sukurta .exe faila galima rasti Debug aplankale
