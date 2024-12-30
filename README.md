@@ -19,9 +19,11 @@ Norint sekmingai paleisti sia programa, reikalinga CMake irankio versija 3.14 ar
 
 Atidarykite terminala savo projekto aplankale ir vykdykite sias komandas:
 
+```
 mkdir build  
 cd build  
 cmake ..  
 cmake --build .  
 cmake --install .  
 Savo .exe faila galima rasti Debug aplankale
+```
