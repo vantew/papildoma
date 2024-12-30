@@ -1,28 +1,27 @@
-# Egzamino (Išankstinė) užduotis
+# Egzamino (Isankstine) uzduotis
 
-
-## Aprašymas
+## Aprasymas
 
 Programa suteikia galimybes
 1. pasirinkti suskaiciuoti kiek kartu tekste pasikartoja zodziai, taciau tik tie, kurie pasikartoja daugiau nei viena karta
 2. kuriose eilutese yra zodziai, pasikartojantys daugiau nei viena karta
 3. isrinkti is teksto URL linkus
 
-## Rezultatų išvedimas
+## Rezultatu isvedimas
 
 Gauti rezultatai pateikiami txt faile "outputas.txt".
 
-## Įdiegimo instrukcija
+## Idegimo instrukcija
 
-Norint sėkmingai paleisti šią programą, reikalinga CMake įrankio versija 3.14 ar naujesnė. Taip pat reikalingas C++ kompiliatorius, palaikantis C++17 standartą.
+Norint sekmingai paleisti sia programa, reikalinga CMake irankio versija 3.14 ar naujesne. Taip pat reikalingas C++ kompiliatorius, palaikantis C++17 standarta.
 
 ### Programos kompiliavimas
 
-Atidarykite terminalą savo projekto aplankale ir vykdykite šias komandas:
+Atidarykite terminala savo projekto aplankale ir vykdykite sias komandas:
 
-mkdir build
-cd build
-cmake ..
-cmake --build .
-cmake --install .
+mkdir build  
+cd build  
+cmake ..  
+cmake --build .  
+cmake --install .  
 Savo .exe faila galima rasti Debug aplankale
