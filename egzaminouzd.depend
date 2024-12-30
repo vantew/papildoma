@@ -1,5 +1,11 @@
 # depslib dependency file v1.0
-1735579998 source:c:\users\vlue1\desktop\egzaminouzd\main.cpp
+1735581543 source:c:\users\vlue1\desktop\egzaminouzd\main.cpp
+	"Mylib.h"
+
+1735581543 source:c:\users\vlue1\desktop\egzaminouzd\functions.cpp
+	"Mylib.h"
+
+1735581543 c:\users\vlue1\desktop\egzaminouzd\mylib.h
 	<iostream>
 	<fstream>
 	<string>
