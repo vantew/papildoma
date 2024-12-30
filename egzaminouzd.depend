@@ -1,0 +1,11 @@
+# depslib dependency file v1.0
+1735578781 source:c:\users\vlue1\desktop\egzaminouzd\main.cpp
+	<iostream>
+	<fstream>
+	<sstream>
+	<string>
+	<unordered_map>
+	<vector>
+	<algorithm>
+	<iomanip>
+
