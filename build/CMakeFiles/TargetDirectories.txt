@@ -1,0 +1,3 @@
+C:/Users/vlue1/Desktop/egzaminouzd/build/CMakeFiles/TekstoNuskaitymas.dir
+C:/Users/vlue1/Desktop/egzaminouzd/build/CMakeFiles/ALL_BUILD.dir
+C:/Users/vlue1/Desktop/egzaminouzd/build/CMakeFiles/ZERO_CHECK.dir
