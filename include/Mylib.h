@@ -9,8 +9,11 @@
 #include <unordered_map>
 #include <vector>
 #include <iomanip>
+#include <algorithm>
+#include <utility>
 #include <cwctype>
 
+// Namespace usage for convenience
 using std::wstring;
 using std::iswalpha;
 using std::towlower;
@@ -34,11 +37,13 @@ using std::wstringstream;
 using std::cout;
 using std::cin;
 using std::wcout;
+using std::pair;
 
 wstring cleanWord(const wstring& word);
 void printCrossReferenceTable(wofstream& outputFile,
                               const unordered_map<wstring, vector<int>>& wordLines,
                               const unordered_map<wstring, int>& wordCount,
                               int maxWidth);
+void sortResults(unordered_map<wstring, int>& wordCount, vector<pair<wstring, int>>& sortedResults, bool sortByAlphabet, bool ascending);
 
 #endif // MYLIB_H_INCLUDED

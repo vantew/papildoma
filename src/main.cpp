@@ -9,14 +9,12 @@ int main() {
         ifstream inputFile("urlai.txt");
         if (!inputFile) {
             cerr << "Error: Could not open file urlai.txt" << endl;
-            system("pause");
             return 1;
         }
 
         ofstream outputFile("outputas.txt");
         if (!outputFile) {
             cerr << "Error: Could not open file outputas.txt for writing" << endl;
-            system("pause");
             return 1;
         }
 
@@ -41,14 +39,12 @@ int main() {
         wifstream inputFile("tekstas.txt");
         if (!inputFile) {
             wcerr << L"Error: Could not open file tekstas.txt" << endl;
-            system("pause");
             return 1;
         }
 
         wofstream outputFile("outputas.txt");
         if (!outputFile) {
             wcerr << L"Error: Could not open file outputas.txt for writing" << endl;
-            system("pause");
             return 1;
         }
 
@@ -75,10 +71,32 @@ int main() {
         inputFile.close();
 
         if (choice == 1) {
+            cout << "Sort results? (1 for yes, 0 for no): ";
+            bool sort;
+            cin >> sort;
+
+            vector<pair<wstring, int>> sortedResults;
+            if (sort) {
+                cout << "Sort by (1 for alphabet, 2 for count): ";
+                int sortType;
+                cin >> sortType;
+
+                cout << "Order (1 for ascending, 2 for descending): ";
+                int orderType;
+                cin >> orderType;
+
+                bool sortByAlphabet = (sortType == 1);
+                bool ascending = (orderType == 1);
+
+                sortResults(wordCount, sortedResults, sortByAlphabet, ascending);
+            } else {
+                sortedResults.assign(wordCount.begin(), wordCount.end());
+            }
+
             outputFile << setw(20) << L"Word" << L" | " << L"Count" << endl;
             outputFile << wstring(30, L'-') << endl;
 
-            for (const auto& pair : wordCount) {
+            for (const auto& pair : sortedResults) {
                 if (pair.second > 1) {
                     outputFile << setw(20) << pair.first << L" | " << pair.second << endl;
                 }
@@ -94,6 +112,5 @@ int main() {
         cout << "Invalid choice. No output generated." << endl;
     }
 
-    system("pause");
     return 0;
 }

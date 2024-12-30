@@ -10,6 +10,20 @@ wstring cleanWord(const wstring& word) {
     return cleaned;
 }
 
+void sortResults(unordered_map<wstring, int>& wordCount, vector<pair<wstring, int>>& sortedResults, bool sortByAlphabet, bool ascending) {
+    sortedResults.assign(wordCount.begin(), wordCount.end());
+
+    if (sortByAlphabet) {
+        sort(sortedResults.begin(), sortedResults.end(), [ascending](const auto& a, const auto& b) {
+            return ascending ? a.first < b.first : a.first > b.first;
+        });
+    } else {
+        sort(sortedResults.begin(), sortedResults.end(), [ascending](const auto& a, const auto& b) {
+            return ascending ? a.second < b.second : a.second > b.second;
+        });
+    }
+}
+
 void printCrossReferenceTable(wofstream& outputFile,
                               const unordered_map<wstring, vector<int>>& wordLines,
                               const unordered_map<wstring, int>& wordCount,
@@ -19,7 +33,7 @@ void printCrossReferenceTable(wofstream& outputFile,
     outputFile << wstring(50, L'-') << endl;
 
     for (const auto& pair : wordLines) {
-        if (wordCount.at(pair.first) > 1) { // includint tik zodzius kurie pasikartoj daugiau nei 1 karta
+        if (wordCount.at(pair.first) > 1) { // Include only words appearing more than once
             outputFile << setw(leftMargin) << pair.first << L" | ";
             int currentWidth = leftMargin + 3;
             for (size_t i = 0; i < pair.second.size(); ++i) {

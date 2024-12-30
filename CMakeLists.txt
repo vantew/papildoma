@@ -16,8 +16,3 @@ file(GLOB SOURCES "C:/Users/vlue1/Desktop/egzaminouzd/src/*.cpp")
 
 # Main executable
 add_executable(TekstoNuskaitymas ${SOURCES})
-
-# Add additional resources
-configure_file("C:/Users/vlue1/Desktop/egzaminouzd/outputas.txt" ${CMAKE_BINARY_DIR}/outputas.txt COPYONLY)
-configure_file("C:/Users/vlue1/Desktop/egzaminouzd/tekstas.txt" ${CMAKE_BINARY_DIR}/tekstas.txt COPYONLY)
-configure_file("C:/Users/vlue1/Desktop/egzaminouzd/urlai.txt" ${CMAKE_BINARY_DIR}/urlai.txt COPYONLY)
